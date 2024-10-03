@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Iteração</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Lista</h1>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="gerarLista()">Gerar Lista</button>
+        <p id="mensagem"></p>
+        <ul id="lista"></ul>
+    </div>
+    <script>
+        function gerarLista() {
+            const input = document.getElementById('numero').value;
+            const mensagemElement = document.getElementById('mensagem');
+            const listaElement = document.getElementById('lista');
+
+            listaElement.innerHTML = ''; 
+
+            if (input.trim() === '' || isNaN(input) || input <= 0) {
+                mensagemElement.textContent = 'Por Favor, insira um número válido.';
+            } else if (parseInt(input) === 5) {
+                mensagemElement.textContent = '';
+                for (let i = 1; i <= 5; i++) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${i}: Marcelo de Souza Moura`; 
+                    listaElement.appendChild(listItem);
+                }
+            } else {
+                mensagemElement.textContent = 'Número diferente de 5. Tente novamente.';
+            }
+        }
+    </script>
+</body>
+</html>
